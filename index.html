@@ -52,7 +52,7 @@
           //if song is not playing, then run this code
           if(song.paused==true)
           {
-              console.log('Playing');
+              //console.log('Playing');
               $('.play-icon').removeClass('fa-play').addClass('fa-pause');  //this is called chaining
               song.play();
 
@@ -60,7 +60,7 @@
             // if song is playing, then run this code
           else
           {
-              console.log('Pausing');
+              //console.log('Pausing');
               $('.play-icon').removeClass('fa-pause').addClass('fa-play');
               song.pause();
           }
