@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title> Song App</title>
+    <title> Songify</title>
     <link rel="stylesheet" type="text/css" href="font-awesome.css">
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -32,13 +32,61 @@
     <script src="jquery.js">
     </script>
     <script>
-$('.welcome-screen button').on('click', function() {
-    var name = $('#name-input').val();
-    var message = "Welcome, " + name;
-    $('.main .user-name').text(message);
-    $('.welcome-screen').addClass('hidden');
-    $('.main').removeClass('hidden');
-});
+          $('.welcome-screen button').on('click', function() {
+          var name = $('#name-input').val();
+          if(name.length>2)
+          {
+              var message = "Welcome, " + name;
+              $('.main .user-name').text(message);
+              $('.welcome-screen').addClass('hidden');
+              $('.main').removeClass('hidden');
+            }
+          else {
+              $('#name-input').addClass('error');
+            }
+      });
+
+      //on clicking the play icon
+      $('.play-icon').on('click',function(){
+          var song=document.querySelector('audio');
+          //if song is not playing, then run this code
+          if(song.paused==true)
+          {
+              console.log('Playing');
+              $('.play-icon').removeClass('fa-play').addClass('fa-pause');  //this is called chaining
+              song.play();
+
+          }
+            // if song is playing, then run this code
+          else
+          {
+              console.log('Pausing');
+              $('.play-icon').removeClass('fa-pause').addClass('fa-play');
+              song.pause();
+          }
+      });
+
+      //on pressing spacebar, play the song
+      $('body').on('keypress',function(event){
+        //console.log(event);       gives overall info about the event
+        //console.log(event.key);   //gives specific info when '.' is used, like which key is used or what is keycode
+        if(event.keyCode ==32)      //32 is the keyCode of spacebar
+        {
+              var song=document.querySelector('audio');
+               //if song is not playing, then run this code
+              if(song.paused==true)
+              {
+                  $('.play-icon').removeClass('fa-play').addClass('fa-pause');
+                  song.play();
+              }
+                // if song is playing, then run this code
+              else
+              {
+                  $('.play-icon').removeClass('fa-pause').addClass('fa-play');
+                  song.pause();
+              }
+        }
+      });
 </script>
 </body>
 
