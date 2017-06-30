@@ -62,7 +62,7 @@
       var songList =['I Hate U , I Love U','Starving','Faded','Uncover'];
       var fileName = ['song.mp3','song2.mp3','song3.mp3','song4.mp3'];
       var artistList = ['Artist1','Artist2','Artist3','Artist4'];
-    
+
       for(var i=0 ; i<fileName.length; i++)
       {
         var name='#song'+(i+1);
@@ -71,6 +71,7 @@
         song.find('.song-artist').text(artistList[i]);
         addClickOnSongname(fileName[i],i+1);
       }
+    }
 
       $('.welcome-screen button').on('click', function() {
           var name = $('#name-input').val();
@@ -92,4 +93,3 @@
                       toggleSong();
                   }
       });
-    }
