@@ -32,10 +32,19 @@
                 </div>
                 <div class="song-list">
                   <div class="song">
-                      <span class="song-name"></span>
-                      <span class="song-artist"></span>
+                      <span id="song1" class="song-name"></span>
+                    <!--  <span class="song-artist"></span>
                       <span class="song-album"></span>
-                      <span class="song-length"></span>
+                      <span class="song-length"></span>-->
+                  </div>
+                  <div class="song">
+                  <span id="song2" class="song-name"> </span>
+                  </div>
+                  <div class="song">
+                      <span id="song3" class="song-name"> </span>
+                  </div>
+                  <div class="song">
+                      <span id="song4" class="song-name"> </span>
                   </div>
                 </div>
             </section>
@@ -59,8 +68,7 @@
     </script>
     <script>
 
-    function fancyTimeFormat(time)
-    {
+    function fancyTimeFormat(time){
         // Hours, minutes and seconds
         var hrs = ~~(time / 3600);              //~~ means Math.floor
         var mins = ~~((time % 3600) / 60);
@@ -77,19 +85,6 @@
         return ret;
     }
 
-    function toggleSong(){
-      var song = document.querySelector('audio');
-      if (song.paused == true) {
-          console.log('Playing');
-          $('.play-icon').removeClass('fa-play').addClass('fa-pause');
-          song.play();
-      } else {
-          console.log('Pausing');
-          $('.play-icon').removeClass('fa-pause').addClass('fa-play');
-          song.pause();
-      }
-    }
-
     function updateCurrentTime() {
       var song = document.querySelector('audio');
       //console.log(song.currentTime);
@@ -102,34 +97,70 @@
       $('.song-duration').text(duration);
     }
 
+    function toggleSong(){
+      var song = document.querySelector('audio');
+      if (song.paused == true) {
+          //console.log('Playing');
+          $('.play-icon').removeClass('fa-play').addClass('fa-pause');
+          song.play();
+      } else {
+          //console.log('Pausing');
+          $('.play-icon').removeClass('fa-pause').addClass('fa-play');
+          song.pause();
+      }
+    }
+
+    function addClickOnSongname(songName,position){
+      var song='#song'+position;
+      $(song).click(function(){
+          var audio = document.querySelector('audio');
+          var currentSong=audio.src;
+          if(currentSong.search(songName)!=-1)
+            toggleSong();
+          else{
+            audio.src=songName;
+            toggleSong();
+          }
+      });
+    }
     window.onload = function() {
       setInterval(function(){
         updateCurrentTime();
       },1000);
-      var songName = 'I Hate U ,  I Love U';
-      $('.song-name').text(songName);
+
+      var songList =['I Hate U , I Love U','Starving','Faded','Uncover'];
+      $('#song1.song-name').text(songList[0]);
+      $('#song2.song-name').text(songList[1]);
+      $('#song3.song-name').text(songList[2]);
+      $('#song4.song-name').text(songList[3]);
+
+      var fileName = ['song.mp3','song2.mp3','song3.mp3','song4.mp3'];
+      addClickOnSongname(fileName[0],1);
+      addClickOnSongname(fileName[1],2);
+      addClickOnSongname(fileName[2],3);
+      addClickOnSongname(fileName[3],4);
+
+      $('.welcome-screen button').on('click', function() {
+          var name = $('#name-input').val();
+          if (name.length > 2) {
+              var message = "Welcome, " + name;
+              $('.main .user-name').text(message);
+              $('.welcome-screen').addClass('hidden');
+              $('.main').removeClass('hidden');
+          } else {
+              $('#name-input').addClass('error');
+          }
+      });
+
+      $('.play-icon').on('click', function() {
+          toggleSong();
+      });
+      $('body').on('keypress', function(event) {
+                  if (event.keyCode == 32) {
+                      toggleSong();
+                  }
+      });
     }
-
-    $('.welcome-screen button').on('click', function() {
-        var name = $('#name-input').val();
-        if (name.length > 2) {
-            var message = "Welcome, " + name;
-            $('.main .user-name').text(message);
-            $('.welcome-screen').addClass('hidden');
-            $('.main').removeClass('hidden');
-        } else {
-            $('#name-input').addClass('error');
-        }
-    });
-
-    $('.play-icon').on('click', function() {
-        toggleSong();
-    });
-    $('body').on('keypress', function(event) {
-                if (event.keyCode == 32) {
-                    toggleSong();
-                }
-    });
     </script>
 </body>
 
