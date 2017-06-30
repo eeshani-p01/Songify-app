@@ -1,3 +1,39 @@
+var songs = [
+   {
+     'name':'I Hate U , I Love U',
+     'artist':['Gnash ',' Olivia OBrien'],
+     'album':'A força do querer, vol. 1',
+     'duration':'3:46',
+     'fileName':'song.mp3',
+     'image':'images/image1.jpg',
+   },
+   {
+     'name':'Starving',
+     'artist':'',
+     'album':'',
+     'duration':'',
+     'fileName':'song.mp3',
+     'image':'',
+   },
+   {
+     'name':'Faded',
+     'artist':'',
+     'album':'',
+     'duration':'',
+     'fileName':'song.mp3',
+     'image':'',
+   },
+   {
+     'name':'Uncover',
+     'artist':'',
+     'album':'',
+     'duration':'',
+     'fileName':'song.mp3',
+     'image':'',
+   }
+ ]
+
+  var songNumber=1;
 
     function fancyTimeFormat(time){
         // Hours, minutes and seconds
@@ -46,52 +82,26 @@
       $(song).click(function(){
           var audio = document.querySelector('audio');
           var currentSong=audio.src;
-          if(currentSong.search(songName)!=-1)
-            toggleSong();
-          else{
+          if(songNumber!== position)    //check for !== weak and strong equality??
+          {
             audio.src=songName;
-            toggleSong();
+            songNumber=position;
           }
+            toggleSong();
       });
     }
+
+/*    function changeCurrentSongDetails(songObj){
+      $('')
+      $('.song-name').text();
+      $('song-album').text();
+    }*/
+
     window.onload = function() {
       setInterval(function(){
         updateCurrentTime();
       },1000);
-      var songs = [
-         {
-           'name':'I Hate U , I Love U',
-           'artist':'gnash',
-           'album':'',
-           'duration':'3:46',
-           'fileName':'song.mp3',
-           'image':'',
-         },
-         {
-           'name':'Starving',
-           'artist':'',
-           'album':'',
-           'duration':'',
-           'fileName':'song.mp3',
-           'image':'',
-         },
-         {
-           'name':'Faded',
-           'artist':'',
-           'album':'',
-           'duration':'',
-           'fileName':'song.mp3',
-           'image':'',
-         },
-         {
-           'name':'Uncover',
-           'artist':'',
-           'album':'',
-           'duration':'',
-           'fileName':'song.mp3',
-           'image':'',
-         }
-       ]
+
        for(var i=0 ; i<songs.length; i++)
        {
          var obj = songs[i];
