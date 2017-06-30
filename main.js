@@ -58,7 +58,53 @@
       setInterval(function(){
         updateCurrentTime();
       },1000);
-
+      var songs = [
+         {
+           'name':'I Hate U , I Love U',
+           'artist':'gnash',
+           'album':'',
+           'duration':'3:46',
+           'fileName':'song.mp3',
+           'image':'',
+         },
+         {
+           'name':'Starving',
+           'artist':'',
+           'album':'',
+           'duration':'',
+           'fileName':'song.mp3',
+           'image':'',
+         },
+         {
+           'name':'Faded',
+           'artist':'',
+           'album':'',
+           'duration':'',
+           'fileName':'song.mp3',
+           'image':'',
+         },
+         {
+           'name':'Uncover',
+           'artist':'',
+           'album':'',
+           'duration':'',
+           'fileName':'song.mp3',
+           'image':'',
+         }
+       ]
+       for(var i=0 ; i<songs.length; i++)
+       {
+         var obj = songs[i];
+         var name='#song'+(i+1);
+         var song=$(name);
+         song.find('.song-name').text(obj.name);
+         song.find('.song-artist').text(obj.artist);
+         song.find('.song-album').text(obj.album);
+         song.find('.song-length').text(obj.duration);
+         addClickOnSongname(obj.fileName,i+1);
+       }
+     }
+/*
       var songList =['I Hate U , I Love U','Starving','Faded','Uncover'];
       var fileName = ['song.mp3','song2.mp3','song3.mp3','song4.mp3'];
       var artistList = ['Artist1','Artist2','Artist3','Artist4'];
@@ -72,7 +118,7 @@
         addClickOnSongname(fileName[i],i+1);
       }
     }
-
+*/
       $('.welcome-screen button').on('click', function() {
           var name = $('#name-input').val();
           if (name.length > 2) {
