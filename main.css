@@ -104,7 +104,7 @@ h1 {
 }
 
 .progress-filled {
-    background-color: #959595;
+    background-color:#00cccc;/* #959595;*/
     height: 8px;
     border-radius: 4px;
     width: 0;

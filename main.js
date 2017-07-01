@@ -65,11 +65,19 @@ var songs = [
       //console.log(song.currentTime);
       //console.log(song.duration);
       var currentTime=Math.floor(song.currentTime);
-      currentTime = fancyTimeFormat(currentTime);
       var duration=Math.floor(song.duration);
+      var bar=(currentTime*100)/duration;
+      currentTime = fancyTimeFormat(currentTime);
       duration = fancyTimeFormat(duration);
       $('.time-elapsed').text(currentTime);
       $('.song-duration').text(duration);
+      Progressbar(bar);
+    }
+
+    function Progressbar(bar){
+          var ele = document.querySelector('.progress-filled');
+          ele.style.width= bar +"%";
+          console.log(bar);
     }
 
     function toggleSong(){
