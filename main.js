@@ -5,31 +5,39 @@ var songs = [
      'album':'A força do querer, vol. 1',
      'duration':'3:46',
      'fileName':'song.mp3',
-     'image':'images/image1.jpg',
+     'image':'image1.jpg',
    },
    {
-     'name':'Starving',
-     'artist':'',
-     'album':'',
-     'duration':'',
-     'fileName':'song.mp3',
-     'image':'',
+     'name':'How would you feel',
+     'artist':'Ed Sheeran',
+     'album':'Divide',
+     'duration':'4:40',
+     'fileName':'song2.mp3',
+     'image':'image2.jpg',
+   },
+   {
+     'name':'Love the way you lie(feat.Rihaana)',
+     'artist':'Eminem , Rihaana',
+     'album':'Recovery',
+     'duration':'4:23',
+     'fileName':'song3.mp3',
+     'image':'image3.jpg',
+   },
+   {
+     'name':'Let it go',
+     'artist':'James Bay',
+     'album':'Chaos and the Calm',
+     'duration':'4:21',
+     'fileName':'song4.mp3',
+     'image':'image4.jpg',
    },
    {
      'name':'Faded',
-     'artist':'',
-     'album':'',
-     'duration':'',
-     'fileName':'song.mp3',
-     'image':'',
-   },
-   {
-     'name':'Uncover',
-     'artist':'',
-     'album':'',
-     'duration':'',
-     'fileName':'song.mp3',
-     'image':'',
+     'artist':'Alan Walker',
+     'album':'-',
+     'duration':'3:32',
+     'fileName':'song5.mp3',
+     'image':'image5.jpg',
    }
  ]
 
@@ -77,27 +85,29 @@ var songs = [
       }
     }
 
-    function addClickOnSongname(songName,position){
-      var song='#song'+position;
+    function addClickOnSongname(songObj,position){
+      var song="#song"+position;
+      var songName=songObj.fileName;
       $(song).click(function(){
           var audio = document.querySelector('audio');
-          var currentSong=audio.src;
           if(songNumber!== position)    //check for !== weak and strong equality??
           {
-            audio.src=songName;
+            audio.src="songs/"+songName;
             songNumber=position;
+            changeCurrentSongDetails(songObj);
           }
             toggleSong();
       });
     }
 
-/*    function changeCurrentSongDetails(songObj){
-      $('')
-      $('.song-name').text();
-      $('song-album').text();
-    }*/
+   function changeCurrentSongDetails(songObj){
+      $('.current-song-image').attr('src',"images/"+songObj.image);
+      $('.current-song-name').text(songObj.name);
+      $('.current-song-album').text(songObj.album);
+    }
 
     window.onload = function() {
+      changeCurrentSongDetails(songs[0]);
       setInterval(function(){
         updateCurrentTime();
       },1000);
@@ -111,7 +121,7 @@ var songs = [
          song.find('.song-artist').text(obj.artist);
          song.find('.song-album').text(obj.album);
          song.find('.song-length').text(obj.duration);
-         addClickOnSongname(obj.fileName,i+1);
+         addClickOnSongname(obj,i+1);
        }
      }
 /*
