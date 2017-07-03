@@ -179,14 +179,6 @@ h1 {
     text-align: right;
 }
 
-.song-list .song {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.5);
-    min-height: 30px;
-    cursor: pointer;
-}
-
 .song > span {
     display: inline-block;
     width: 150px;
@@ -199,10 +191,6 @@ h1 {
 
 .song .song-duration {
     text-align: right;
-}
-
-.song-list .song:hover {
-    background-color: #282828;
 }
 
 .song-length {
@@ -267,4 +255,11 @@ padding;*/
 }
 #songs .song:hover{
   background-color:#282828;
+}
+.player-buttons .fa {
+    margin-right: 2rem;
+}
+
+.fa.disabled {
+    color: gray;
 }

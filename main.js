@@ -43,6 +43,9 @@ var songs = [
  ]
 
   var songNumber=1;       //initializing the default songnumber
+  var willLoop=0;
+  var willShuffle=0;
+  var currentSongNumber=1;
 
     function fancyTimeFormat(time){               //function to change the time format to hh:mm:ss
         // Hours, minutes and seconds
@@ -114,6 +117,10 @@ var songs = [
       $('.current-song-name').text(songObj.name);
       $('.current-song-album').text(songObj.album);
     }
+    function timejump() {
+      var aud=document.querySelector('audio');
+      aud.currentTime=aud.duration-5;
+    }
 
     //when the html document is loaded completely, after that, this function will execute
     window.onload = function() {
@@ -176,4 +183,12 @@ var songs = [
                   if (event.keyCode == 32 && target.tagName!='INPUT') {
                       toggleSong();
                   }
+      });
+      $('.fa-repeat').on('click',function() {
+          $('.fa-repeat').toggleClass('disabled')
+          willLoop = 1 - willLoop;
+      });
+      $('.fa-random').on('click',function() {
+          $('.fa-random').toggleClass('disabled')
+          willShuffle = 1 - willShuffle;
       });
