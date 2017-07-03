@@ -210,5 +210,8 @@ font-size: 16px;
 }
 
 #songs .song{
-  
+  cursor:pointer;
+}
+#songs .song:hover{
+  background-color:#282828;
 }
