@@ -247,16 +247,16 @@ display: none;
 color: transparent;
 }
 #songs_filter input {
-width: 320px;/*
+width: 320px;
 height:25px;
-margin-bottom: 1rem;
+/*margin-bottom: 1rem;
 font-size: 16px;
 border:0;
 border-radius:15px;
 background-color:#e0e0e0;
 outline:none;
-padding;
-}*/
+padding;*/
+}
 
 #songs_filter input:focus {
   border:none;
