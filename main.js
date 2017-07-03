@@ -1,3 +1,4 @@
+/*List of details of song , declaring an object to store detail of each song */
 var songs = [
    {
      'name':'I Hate U , I Love U',
@@ -41,9 +42,9 @@ var songs = [
    }
  ]
 
-  var songNumber=1;
+  var songNumber=1;       //initializing the default songnumber
 
-    function fancyTimeFormat(time){
+    function fancyTimeFormat(time){               //function to change the time format to hh:mm:ss
         // Hours, minutes and seconds
         var hrs = ~~(time / 3600);              //~~ means Math.floor
         var mins = ~~((time % 3600) / 60);
@@ -60,7 +61,7 @@ var songs = [
         return ret;
     }
 
-    function updateCurrentTime() {
+    function updateCurrentTime() {              //function to change
       var song = document.querySelector('audio');
       //console.log(song.currentTime);
       //console.log(song.duration);
@@ -77,7 +78,7 @@ var songs = [
     function Progressbar(bar){
           var ele = document.querySelector('.progress-filled');
           ele.style.width= bar +"%";
-          console.log(bar);
+          //console.log(bar);
     }
 
     function toggleSong(){
@@ -114,7 +115,9 @@ var songs = [
       $('.current-song-album').text(songObj.album);
     }
 
+    //when the html document is loaded completely, after that, this function will execute
     window.onload = function() {
+
       changeCurrentSongDetails(songs[0]);
       setInterval(function(){
         updateCurrentTime();
@@ -131,6 +134,12 @@ var songs = [
          song.find('.song-length').text(obj.duration);
          addClickOnSongname(obj,i+1);
        }
+
+       $('#songs').DataTable({        //adding datatables
+         paging:false,
+      /*   scrollY:250,
+         scroller:true*/
+       });
      }
 /*
       var songList =['I Hate U , I Love U','Starving','Faded','Uncover'];

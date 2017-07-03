@@ -31,6 +31,8 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url('images/wallpaper.jpg');
+    opacity:0.4;
 }
 
 .main {
@@ -160,10 +162,11 @@ h1 {
     background-color: #282828;
 }
 
-
 .song-length {
     text-align: right;
 }
+
+/* Current song display css*/
 .main .content {
     position: relative;
 }
@@ -187,4 +190,25 @@ h1 {
 
 .main .content .current-song-wrapper .current-song-album {
     margin-top: 0.4rem;
+}
+
+/*DataTables overrides*/
+table.dataTable tbody tr {
+background-color: initial;
+}
+#songs_info {
+display: none;
+}
+
+#songs_filter {
+color: transparent;
+}
+#songs_filter input {
+width: 400px;
+margin-bottom: 1rem;
+font-size: 16px;
+}
+
+#songs .song{
+  
 }
