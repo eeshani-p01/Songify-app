@@ -124,8 +124,8 @@ h1 {
     cursor: pointer;
 }
 
-.error {
-    border: 2px solid red;
+.input-wrapper.error input::placeholder {
+  color:red;
 }
 
 .progress-wrapper {

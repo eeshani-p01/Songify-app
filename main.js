@@ -171,7 +171,7 @@ var songs = [
               $('.welcome-screen').addClass('hidden');
               $('.main').removeClass('hidden');
           } else {
-              $('#name-input').addClass('error');
+              $('.input-wrapper').addClass('error');
           }
       });
 
