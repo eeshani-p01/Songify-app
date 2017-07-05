@@ -52,10 +52,11 @@ h1 {
     font-size: 2.7rem;
     font-family:Italianno;
 }
-.wrapper .welcome-screen .input-wrapper input,.wrapper .welcome-screen .input-wrapper input::placeholder{
+.wrapper .welcome-screen .input-wrapper input,.wrapper .welcome-screen .input-wrapper input::placeholder,
+.wrapper .welcome-screen .input-wrapper.error input:focus{
   border-radius: 15px;
   font-size: 1.1rem;
-  border: 0;
+  border:1px solid white;
   padding:0px 10px 0px 10px;
   height: 1.6rem;
   text-align:center;
@@ -124,8 +125,8 @@ h1 {
     cursor: pointer;
 }
 
-.input-wrapper.error input::placeholder {
-  color:red;
+.wrapper .welcome-screen .input-wrapper.error input{
+    border:1px solid red;
 }
 
 .progress-wrapper {

@@ -112,17 +112,19 @@ var songs = [
       });
     }
 
-   function changeCurrentSongDetails(songObj){
+    function changeCurrentSongDetails(songObj){
       $('.current-song-image').attr('src',"images/"+songObj.image);
       $('.current-song-name').text(songObj.name);
       $('.current-song-album').text(songObj.album);
     }
+
     function timejump() {
       var aud=document.querySelector('audio');
       aud.currentTime=aud.duration-5;
     }
 
     //when the html document is loaded completely, after that, this function will execute
+
     window.onload = function() {
 
       changeCurrentSongDetails(songs[0]);
@@ -165,11 +167,18 @@ var songs = [
 */
       $('.welcome-screen button').on('click', function() {
           var name = $('#name-input').val();
-          if (name.length > 2) {
+          if (name.length > 3) {
               var message = "Welcome, " + name;
               $('.main .user-name').text(message);
-              $('.welcome-screen').addClass('hidden');
-              $('.main').removeClass('hidden');
+              $(".welcome-screen").slideUp(400);
+              setTimeout(function(){
+                $('.welcome-screen').addClass('hidden');
+
+              }, 280);
+              setTimeout(function(){
+                $(".main").slideUp(300);
+                $('.main').removeClass('hidden');
+              },50);
           } else {
               $('.input-wrapper').addClass('error');
           }
