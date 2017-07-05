@@ -86,6 +86,8 @@ h1 {
     flex-direction: column;
     color: white;
     background-color: #1f1f1f;
+    letter-spacing: .6px;
+    font-family:'Arima Madurai',Helvetica,arial;
 }
 
 .main header {
@@ -108,9 +110,20 @@ h1 {
 
 .player-buttons {
     display:flex;
-    font-size: 1.5rem;
+    font-size: 21px;
     justify-content: center;
     align-items: center;
+}
+.player-buttons .fa.fa-play,.player-buttons .fa.fa-pause{
+  font-size: 1.6rem;
+}
+.player-buttons .fa {
+    margin-right: 2rem;
+    margin-left: 1.4rem;
+}
+
+.fa.disabled {
+    color: gray;
 }
 
 .hidden {
@@ -228,6 +241,9 @@ h1 {
 table.dataTable tbody tr {
 background-color: initial;
 }
+table.dataTable tbody th, table.dataTable tbody td{
+  padding:6px 0px 4px 0px;
+}
 #songs_info {
 display: none;
 }
@@ -256,11 +272,4 @@ padding;*/
 }
 #songs .song:hover{
   background-color:#282828;
-}
-.player-buttons .fa {
-    margin-right: 2rem;
-}
-
-.fa.disabled {
-    color: gray;
 }
