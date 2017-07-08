@@ -203,25 +203,6 @@ var songs = [
                //console.log(song.currentTime);
              });
 
-             $('.fa-step-forward').on('click',function(){
-               var audio=document.querySelector('audio');
-               if(songNumber<songs.length)
-               {
-                   var next=songs[songNumber];
-                   audio.src="songs/"+next.fileName;
-                   changeCurrentSongDetails(next);
-                   toggleSong();
-                   songNumber++;
-                 }
-                else {
-                    var next=songs[0];
-                    audio.src="songs/"+next.fileName;
-                    changeCurrentSongDetails(next);
-                    toggleSong();
-                    songNumber=1;
-                }
-             });
-            
              $('.fa-repeat').on('click',function() {
                  $('.fa-repeat').toggleClass('disabled')
                  willLoop = 1 - willLoop;
@@ -265,8 +246,48 @@ var songs = [
                  else {
                      $('.play-icon').removeClass('fa-pause').addClass('fa-play');
                      audio.currentTime=0;
+                     //console.log(songNumber);
                  }
              });
+
+              $('.fa-step-forward').on('click',function(){
+                var audio=document.querySelector('audio');
+                if(songNumber<songs.length)
+                {
+                    var next=songs[songNumber];
+                    audio.src="songs/"+next.fileName;
+                    changeCurrentSongDetails(next);
+                    toggleSong();
+                    songNumber++;
+                  }
+                 else {
+                     var next=songs[0];
+                     audio.src="songs/"+next.fileName;
+                     changeCurrentSongDetails(next);
+                     toggleSong();
+                     songNumber=1;
+                 }
+              });
+              $('.fa-step-backward').on('click',function(){
+                var audio=document.querySelector('audio');
+                if(songNumber>1)
+                {
+                    var prev=songs[songNumber-2];
+                    audio.src="songs/"+prev.fileName;
+                    changeCurrentSongDetails(prev);
+                    toggleSong();
+                    songNumber--;
+ //                   console.log(songNumber);
+                  }
+                 else {
+                     var prev=songs[songs.length-1];
+                     audio.src="songs/"+prev.fileName;
+                     changeCurrentSongDetails(prev);
+                     toggleSong();
+                     songNumber=songs.length;
+                 }
+              });
+
 
 /*
       var songList =['I Hate U , I Love U','Starving','Faded','Uncover'];
