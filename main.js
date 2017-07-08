@@ -127,10 +127,10 @@ var songs = [
       $('.current-song-album').text(songObj.album);
     }
 
-    function timejump() {
+/*    function timejump() {
       var aud=document.querySelector('audio');
       aud.currentTime=aud.duration-5;
-    }
+    }*/
 
     //when the html document is loaded completely, after that, this function will execute
 
@@ -192,11 +192,11 @@ var songs = [
              $('.player-progress').click(function(event){
                var $this=$(this);
                var widthclicked= event.pageX-$this.offset().left;
-               //console.log(event.pageX);
-               //console.log($this.offset().left);
+               //console.log(event.pageX);  gives the position from left whereever clicked
+               //console.log($this.offset().left);      gives the positon from left where 'this' start and always fixed
                //console.log(widthclicked);
                var totalwidth=$this.width();
-               //console.log(totalwidth);
+               //console.log(totalwidth);           gives the total width of the player and always fixed
                var width=(widthclicked/totalwidth)*100;
                var song=document.querySelector('audio');
                song.currentTime=(song.duration*width)/100;
@@ -214,29 +214,39 @@ var songs = [
              });
 
              $('audio').on('ended',function(){
-               var audio=document.querySelector('audio');
-               if(willLoop==1)
-               {
-                 if(songNumber<songs.length)
+                 var audio=document.querySelector('audio');
+                 if(willShuffle==1)
                  {
-                   var nextsong =songs[songNumber];
-                   audio.src="songs/"+nextsong.fileName;
-                   changeCurrentSongDetails(nextsong);
-                   toggleSong();
-                   songNumber=songNumber+1;
+                      var nextsongno=randomExcluded(1,5,songNumber);      //calling function to get random value
+                      console.log(nextsongno);
+                      var nextsong=songs[nextsongno-1];
+                      audio.src="songs/"+nextsong.fileName;
+                      toggleSong();
+                      changeCurrentSongDetails(nextsong);
+                      songNumber=nextsongno;
                  }
-                 else{
-                   var nextsong =songs[0];
-                   audio.src="songs/"+nextsong.fileName;
-                   toggleSong();
-                   changeCurrentSongDetails(nextsong);
-                   songNumber=1;
+                 else if(willLoop==1)
+                 {
+                     if(songNumber<songs.length)
+                     {
+                       var nextsong =songs[songNumber];
+                       audio.src="songs/"+nextsong.fileName;
+                       changeCurrentSongDetails(nextsong);
+                       toggleSong();
+                       songNumber=songNumber+1;
+                     }
+                     else{
+                       var nextsong =songs[0];
+                       audio.src="songs/"+nextsong.fileName;
+                       toggleSong();
+                       changeCurrentSongDetails(nextsong);
+                       songNumber=1;
+                     }
                  }
-               }
-               else {
-                   $('.play-icon').removeClass('fa-pause').addClass('fa-play');
-                   audio.currentTime=0;
-               }
+                 else {
+                     $('.play-icon').removeClass('fa-pause').addClass('fa-play');
+                     audio.currentTime=0;
+                 }
              });
 /*
       var songList =['I Hate U , I Love U','Starving','Faded','Uncover'];
