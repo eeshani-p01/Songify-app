@@ -121,15 +121,23 @@ h1 {
     margin-right: 2rem;
     margin-left: 1.4rem;
 }
-
-.fa.disabled {
+.fa-repeat,.fa-random{
+  color:#00cccc;
+  opacity: 0.5;
+}
+.fa:hover{
+  opacity:1;
+}
+.fa.disabled{
     color: gray;
+}
+.fa.disabled:hover{
+  color:white;
 }
 
 .hidden {
     display: none;
 }
-
 .right.floated {
     float: right;
 }
