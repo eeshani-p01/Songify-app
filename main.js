@@ -65,6 +65,13 @@ var songs = [
         return ret;
     }
 
+    function randomExcluded(min, max, excluded) {
+        var n = Math.floor(Math.random() * (max-min) + min);
+        if (n >= excluded) n++;
+        return n;
+    }
+
+
     function updateCurrentTime() {              //function to change
       var song = document.querySelector('audio');
       //console.log(song.currentTime);
@@ -182,6 +189,20 @@ var songs = [
                              toggleSong();
                          }
              });
+             $('.player-progress').click(function(event){
+               var $this=$(this);
+               var widthclicked= event.pageX-$this.offset().left;
+               //console.log(event.pageX);
+               //console.log($this.offset().left);
+               //console.log(widthclicked);
+               var totalwidth=$this.width();
+               //console.log(totalwidth);
+               var width=(widthclicked/totalwidth)*100;
+               var song=document.querySelector('audio');
+               song.currentTime=(song.duration*width)/100;
+               //console.log(song.currentTime);
+             });
+
              $('.fa-repeat').on('click',function() {
                  $('.fa-repeat').toggleClass('disabled')
                  willLoop = 1 - willLoop;
