@@ -107,7 +107,7 @@ var songs = [
           {
             audio.src="songs/"+songName;
             songNumber=position;
-            currentSongNumber=position;
+            //currentSongNumber=position;
             changeCurrentSongDetails(songObj);
           }
             toggleSong();
@@ -196,20 +196,20 @@ var songs = [
                var audio=document.querySelector('audio');
                if(willLoop==1)
                {
-                 if(currentSongNumber<songs.length)
+                 if(songNumber<songs.length)
                  {
-                   var nextsong =songs[currentSongNumber];
+                   var nextsong =songs[songNumber];
                    audio.src="songs/"+nextsong.fileName;
                    changeCurrentSongDetails(nextsong);
                    toggleSong();
-                   currentSongNumber=currentSongNumber+1;
+                   songNumber=songNumber+1;
                  }
                  else{
                    var nextsong =songs[0];
                    audio.src="songs/"+nextsong.fileName;
                    toggleSong();
                    changeCurrentSongDetails(nextsong);
-                   currentSongNumber=1;
+                   songNumber=1;
                  }
                }
                else {
