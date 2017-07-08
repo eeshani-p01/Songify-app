@@ -1,5 +1,22 @@
 /*List of details of song , declaring an object to store detail of each song */
 var songs = [
+
+  {
+    'name':'Faded',
+    'artist':'Alan Walker',
+    'album':'-',
+    'duration':'3:32',
+    'fileName':'song5.mp3',
+    'image':'image5.jpg',
+  },
+    {
+      'name':'How would you feel',
+      'artist':'Ed Sheeran',
+      'album':'Divide',
+      'duration':'4:40',
+      'fileName':'song2.mp3',
+      'image':'image2.jpg',
+    },
    {
      'name':'I Hate U , I Love U',
      'artist':['Gnash ',' Olivia OBrien'],
@@ -7,22 +24,6 @@ var songs = [
      'duration':'3:46',
      'fileName':'song.mp3',
      'image':'image1.jpg',
-   },
-   {
-     'name':'How would you feel',
-     'artist':'Ed Sheeran',
-     'album':'Divide',
-     'duration':'4:40',
-     'fileName':'song2.mp3',
-     'image':'image2.jpg',
-   },
-   {
-     'name':'Love the way you lie(feat.Rihaana)',
-     'artist':'Eminem , Rihaana',
-     'album':'Recovery',
-     'duration':'4:23',
-     'fileName':'song3.mp3',
-     'image':'image3.jpg',
    },
    {
      'name':'Let it go',
@@ -33,19 +34,19 @@ var songs = [
      'image':'image4.jpg',
    },
    {
-     'name':'Faded',
-     'artist':'Alan Walker',
-     'album':'-',
-     'duration':'3:32',
-     'fileName':'song5.mp3',
-     'image':'image5.jpg',
+     'name':'Love the way you lie(feat.Rihaana)',
+     'artist':'Eminem , Rihaana',
+     'album':'Recovery',
+     'duration':'4:23',
+     'fileName':'song3.mp3',
+     'image':'image3.jpg',
    }
  ]
 
   var songNumber=1;       //initializing the default songnumber
   var willLoop=0;
   var willShuffle=0;
-  var currentSongNumber=1;
+  var currentSongNumber=0;
 
     function fancyTimeFormat(time){               //function to change the time format to hh:mm:ss
         // Hours, minutes and seconds
@@ -106,6 +107,7 @@ var songs = [
           {
             audio.src="songs/"+songName;
             songNumber=position;
+            currentSongNumber=position;
             changeCurrentSongDetails(songObj);
           }
             toggleSong();
@@ -127,29 +129,94 @@ var songs = [
 
     window.onload = function() {
 
-      changeCurrentSongDetails(songs[0]);
-      setInterval(function(){
-        updateCurrentTime();
-      },1000);
+          changeCurrentSongDetails(songs[0]);
+          setInterval(function(){
+            updateCurrentTime();
+          },1000);
 
-       for(var i=0 ; i<songs.length; i++)
-       {
-         var obj = songs[i];
-         var name='#song'+(i+1);
-         var song=$(name);
-         song.find('.song-name').text(obj.name);
-         song.find('.song-artist').text(obj.artist);
-         song.find('.song-album').text(obj.album);
-         song.find('.song-length').text(obj.duration);
-         addClickOnSongname(obj,i+1);
-       }
+           for(var i=0 ; i<songs.length; i++)
+           {
+             var obj = songs[i];
+             var name='#song'+(i+1);
+             var song=$(name);
+             song.find('.song-name').text(obj.name);
+             song.find('.song-artist').text(obj.artist);
+             song.find('.song-album').text(obj.album);
+             song.find('.song-length').text(obj.duration);
+             addClickOnSongname(obj,i+1);
+           }
 
-       $('#songs').DataTable({        //adding datatables
-         paging:false,
-      /*   scrollY:250,
-         scroller:true*/
-       });
+           $('#songs').DataTable({        //adding datatables
+             paging:false,
+          /*   scrollY:250,
+             scroller:true*/
+           });
      }
+
+
+             $('.welcome-screen button').on('click', function() {
+                 var name = $('#name-input').val();
+                 if (name.length > 3) {
+                     var message = "Welcome, " + name;
+                     $('.main .user-name').text(message);
+                     $(".welcome-screen").slideUp(400);
+                     setTimeout(function(){
+                       $('.welcome-screen').addClass('hidden');
+
+                     }, 280);
+                     setTimeout(function(){
+                       $(".main").slideUp(300);
+                       $('.main').removeClass('hidden');
+                     },50);
+                 } else {
+                     $('.input-wrapper').addClass('error');
+                 }
+             });
+
+             $('.play-icon').on('click', function() {
+                 toggleSong();
+             });
+             $('body').on('keypress', function(event) {
+                 var target=event.target;
+                         if (event.keyCode == 32 && target.tagName!='INPUT') {
+                             toggleSong();
+                         }
+             });
+             $('.fa-repeat').on('click',function() {
+                 $('.fa-repeat').toggleClass('disabled')
+                 willLoop = 1 - willLoop;
+
+             });
+             $('.fa-random').on('click',function() {
+                 $('.fa-random').toggleClass('disabled')
+                 willShuffle = 1 - willShuffle;
+             });
+
+             $('audio').on('ended',function(){
+               var audio=document.querySelector('audio');
+               if(willLoop==1)
+               {
+                 if(currentSongNumber<songs.length)
+                 {
+                   var nextsong =songs[currentSongNumber];
+                   audio.src="songs/"+nextsong.fileName;
+                   changeCurrentSongDetails(nextsong);
+                   toggleSong();
+                   currentSongNumber=currentSongNumber+1;
+                 }
+                 else{
+                   var nextsong =songs[0];
+                   audio.src="songs/"+nextsong.fileName;
+                   toggleSong();
+                   changeCurrentSongDetails(nextsong);
+                   currentSongNumber=1;
+                 }
+               }
+               else {
+                   $('.play-icon').removeClass('fa-pause').addClass('fa-play');
+                   audio.currentTime=0;
+               }
+             });
 /*
       var songList =['I Hate U , I Love U','Starving','Faded','Uncover'];
       var fileName = ['song.mp3','song2.mp3','song3.mp3','song4.mp3'];
@@ -165,39 +232,3 @@ var songs = [
       }
     }
 */
-      $('.welcome-screen button').on('click', function() {
-          var name = $('#name-input').val();
-          if (name.length > 3) {
-              var message = "Welcome, " + name;
-              $('.main .user-name').text(message);
-              $(".welcome-screen").slideUp(400);
-              setTimeout(function(){
-                $('.welcome-screen').addClass('hidden');
-
-              }, 280);
-              setTimeout(function(){
-                $(".main").slideUp(300);
-                $('.main').removeClass('hidden');
-              },50);
-          } else {
-              $('.input-wrapper').addClass('error');
-          }
-      });
-
-      $('.play-icon').on('click', function() {
-          toggleSong();
-      });
-      $('body').on('keypress', function(event) {
-          var target=event.target;
-                  if (event.keyCode == 32 && target.tagName!='INPUT') {
-                      toggleSong();
-                  }
-      });
-      $('.fa-repeat').on('click',function() {
-          $('.fa-repeat').toggleClass('disabled')
-          willLoop = 1 - willLoop;
-      });
-      $('.fa-random').on('click',function() {
-          $('.fa-random').toggleClass('disabled')
-          willShuffle = 1 - willShuffle;
-      });
