@@ -203,6 +203,25 @@ var songs = [
                //console.log(song.currentTime);
              });
 
+             $('.fa-step-forward').on('click',function(){
+               var audio=document.querySelector('audio');
+               if(songNumber<songs.length)
+               {
+                   var next=songs[songNumber];
+                   audio.src="songs/"+next.fileName;
+                   changeCurrentSongDetails(next);
+                   toggleSong();
+                   songNumber++;
+                 }
+                else {
+                    var next=songs[0];
+                    audio.src="songs/"+next.fileName;
+                    changeCurrentSongDetails(next);
+                    toggleSong();
+                    songNumber=1;
+                }
+             });
+            
              $('.fa-repeat').on('click',function() {
                  $('.fa-repeat').toggleClass('disabled')
                  willLoop = 1 - willLoop;
@@ -248,6 +267,7 @@ var songs = [
                      audio.currentTime=0;
                  }
              });
+
 /*
       var songList =['I Hate U , I Love U','Starving','Faded','Uncover'];
       var fileName = ['song.mp3','song2.mp3','song3.mp3','song4.mp3'];
