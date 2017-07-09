@@ -95,6 +95,7 @@ var songs = [
     function changeVolume(val){
            var aud=document.querySelector('audio');
            aud.volume=val;
+          //  if(val==0)         
     }
 
     function toggleSong(){

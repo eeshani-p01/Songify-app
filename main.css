@@ -123,7 +123,7 @@ h1 {
 }
 .fa-repeat,.fa-random{
   color:#00cccc;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 .fa:hover{
   opacity:1;
@@ -220,30 +220,31 @@ h1 {
 }
 
 /* Current song display css*/
-.main .content {
+.main footer {
     position: relative;
 }
-.main .content .current-song-wrapper {
+.main footer .current-song-wrapper {
     position: absolute;
-    bottom: 0;
+    bottom:0;
     display: flex;
 }
 
-.main .content .current-song-wrapper .current-song-image {
-    height: 100px;
-    width: 100px;
-    margin-right: 1rem;
+.main footer .current-song-wrapper .current-song-image {
+    height: 65px;
+    width: 70px;
+    margin:0.2px 0.5rem 0.4rem 0.5rem;
 }
 
-.main .content .current-song-wrapper .current-song-name {
-    font-size: 1.4rem;
+.main footer .current-song-wrapper .current-song-name {
+    font-size: 1rem;
     margin-top: 4px;
     margin-bottom: 0;
 }
 
-.main .content .current-song-wrapper .current-song-album {
-    margin-top: 0.4rem;
+.main footer .current-song-wrapper .current-song-album {
+    margin: 0px 0px 0px 0px;
 }
+
 
 /*DataTables overrides*/
 table.dataTable tbody tr {
