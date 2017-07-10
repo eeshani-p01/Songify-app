@@ -95,7 +95,8 @@ var songs = [
     function changeVolume(val){
            var aud=document.querySelector('audio');
            aud.volume=val;
-          //  if(val==0)         
+          //  if(val==0)
+
     }
 
     function toggleSong(){
@@ -209,9 +210,15 @@ var songs = [
                //console.log(song.currentTime);
              });
 
-            $('#volume1').on('change',function(){
-                changeVolume(this.value);
-            });
+              $('#volume1').on('change',function(){
+                  changeVolume(this.value);
+              });
+              $('.fa-volume-up').hover(function(){
+                $('#volume1').removeClass('hidden')
+                  $('#volume1').mouseleave(function(){
+                    $('#volume1').addClass('hidden')
+                  })
+              });
 
              $('.fa-repeat').on('click',function() {
                  $('.fa-repeat').toggleClass('disabled')

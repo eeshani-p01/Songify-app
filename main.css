@@ -245,6 +245,38 @@ h1 {
     margin: 0px 0px 0px 0px;
 }
 
+.controls_2{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right:0;
+}
+.controls_2 .fa{
+  margin: 0px 0px 12px -16rem;
+  color:#00cccc;
+  opacity: 0.8;
+}
+input[type=range]{
+    -webkit-appearance: none;
+    height: 3px;
+    background: gray;
+    width: 130px;
+    border: none;
+    margin-top: 0.6rem;
+    overflow: visible;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #00cccc;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
 
 /*DataTables overrides*/
 table.dataTable tbody tr {
