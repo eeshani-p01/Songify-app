@@ -99,11 +99,11 @@ var songs = [
            if(val==0)
            {
                $('.favolume').addClass('fa-volume-off').removeClass('fa-volume-up')
-               console.log('volume0');
+              // console.log('volume0')
            }
            else {
              $('.favolume').addClass('fa-volume-up').removeClass('fa-volume-off')
-             console.log('volume high');
+            // console.log('volume high');
            }
     }
 
@@ -229,7 +229,8 @@ var songs = [
                   })
               });
               $('.favolume').on('click',function(){
-                  changeVolume(mute);
+                   changeVolume(mute);
+                  // $('#volume1').slider({value:0});
                   mute=1-mute;
               });
 

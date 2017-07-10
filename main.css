@@ -150,34 +150,6 @@ h1 {
     border:1px solid red;
 }
 
-.progress-wrapper {
-    margin-top: 0.3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.progress-wrapper span {
-    color: #959595;
-}
-
-.player-progress {
-    height: 8px;
-    width: 700px;
-    background-color: #3d3d3d;
-    border-radius: 4px;
-    margin-right: 6px;
-    margin-left: 6px;
-}
-
-.progress-filled {
-    background-color:#00cccc;/* #959595;*/
-    height: 8px;
-    border-radius: 4px;
-    width: 0;
-
-}
-
 .main .content {
     width: 800px;
     margin: 2rem auto;
@@ -230,19 +202,53 @@ h1 {
 }
 
 .main footer .current-song-wrapper .current-song-image {
-    height: 65px;
-    width: 70px;
-    margin:0.2px 0.5rem 0.4rem 0.5rem;
+    height: 58px;
+    width: 58px;
+    margin:0.2px 0.5rem 0.6rem 0.5rem;
 }
 
 .main footer .current-song-wrapper .current-song-name {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-top: 4px;
     margin-bottom: 0;
+    letter-spacing: 0.8px;
 }
 
 .main footer .current-song-wrapper .current-song-album {
-    margin: 0px 0px 0px 0px;
+    margin:0px;
+    font-size: 0.7rem;
+}
+
+.controls{
+    margin-left:2rem;
+}
+
+.progress-wrapper {
+    margin-top: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-wrapper span {
+    color: #959595;
+}
+
+.player-progress {
+    height: 8px;
+    width: 700px;
+    background-color: #3d3d3d;
+    border-radius: 4px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.progress-filled {
+    background-color:#00cccc;/* #959595;*/
+    height: 8px;
+    border-radius: 4px;
+    width: 0;
+
 }
 
 .controls_2{
@@ -252,10 +258,11 @@ h1 {
   right:0;
 }
 .controls_2 .fa{
-  margin: 0px 0px 12px -16rem;
+  margin: 0px 0px 12px -15rem;
   color:#00cccc;
   opacity: 0.8;
 }
+
 input[type=range]{
     -webkit-appearance: none;
     height: 3px;
