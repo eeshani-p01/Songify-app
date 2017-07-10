@@ -47,6 +47,7 @@ var songs = [
   var willLoop=0;
   var willShuffle=0;
   var currentSongNumber=0;
+  var mute=0;
 
     function fancyTimeFormat(time){               //function to change the time format to hh:mm:ss
         // Hours, minutes and seconds
@@ -95,8 +96,15 @@ var songs = [
     function changeVolume(val){
            var aud=document.querySelector('audio');
            aud.volume=val;
-          //  if(val==0)
-
+           if(val==0)
+           {
+               $('.favolume').addClass('fa-volume-off').removeClass('fa-volume-up')
+               console.log('volume0');
+           }
+           else {
+             $('.favolume').addClass('fa-volume-up').removeClass('fa-volume-off')
+             console.log('volume high');
+           }
     }
 
     function toggleSong(){
@@ -210,14 +218,19 @@ var songs = [
                //console.log(song.currentTime);
              });
 
+//Js for Volume icon
               $('#volume1').on('change',function(){
                   changeVolume(this.value);
               });
-              $('.fa-volume-up').hover(function(){
-                $('#volume1').removeClass('hidden')
+              $('.favolume').hover(function(){
+                  $('#volume1').removeClass('hidden')
                   $('#volume1').mouseleave(function(){
                     $('#volume1').addClass('hidden')
                   })
+              });
+              $('.favolume').on('click',function(){
+                  changeVolume(mute);
+                  mute=1-mute;
               });
 
              $('.fa-repeat').on('click',function() {
