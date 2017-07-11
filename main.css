@@ -18,6 +18,25 @@ h1 {
     margin: 0;
 }
 
+@media only screen and (max-width: 1200px){
+  .controls_2 .fa{
+    margin: 0px 0px 12px -3.5rem;
+  }
+}
+@media only screen and (min-width: 1200px){
+      .progress-wrapper {
+        width: 100%;
+      }
+      .controls_2 .fa{
+        margin: 0px 0px 12px -15rem;
+      }
+      #songs_wrapper{
+        margin-top: -120px;
+      }
+      div.label{
+        margin-top: 120px;
+      }
+}
 .wrapper {
     height: 100%;
     width: 100%;
@@ -82,7 +101,7 @@ h1 {
 .main {
     width: 100%;
     height: 100%;
-    display: flex;
+    display:inline-flex;
     flex-direction: column;
     color: white;
     background-color: #1f1f1f;
@@ -103,6 +122,7 @@ h1 {
 }
 
 .main footer {
+    width: 100%;
     height: 80px;
     background-color: #282828;
     padding-top: 1rem;
@@ -120,6 +140,7 @@ h1 {
 .player-buttons .fa {
     margin-right: 2rem;
     margin-left: 1.4rem;
+    /*position:fixed;*/
 }
 .fa-repeat,.fa-random{
   color:#00cccc;
@@ -153,6 +174,7 @@ h1 {
 .main .content {
     width: 800px;
     margin: 2rem auto;
+    margin-top: 160px;
 }
 
 .list-headers {
@@ -225,9 +247,11 @@ h1 {
 
 .progress-wrapper {
     margin-top: 0.3rem;
+    margin-left: 12rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    width:70%;
 }
 
 .progress-wrapper span {
@@ -258,19 +282,19 @@ h1 {
   right:0;
 }
 .controls_2 .fa{
-  margin: 0px 0px 12px -15rem;
   color:#00cccc;
   opacity: 0.8;
 }
 
 input[type=range]{
+    /*-webkit-transform:rotate(270deg);*/
     -webkit-appearance: none;
     height: 3px;
     background: gray;
     width: 130px;
     border: none;
     margin-top: 0.6rem;
-    overflow: visible;
+    /*overflow:visible;*/
 }
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -320,4 +344,44 @@ padding;*/
 }
 #songs .song:hover{
   background-color:#282828;
+}
+
+/* css for effects*/
+@keyframes effect{
+  0%{  background: linear-gradient(-90deg,#592856,#773574,#ad40a7,#e550de );}
+  25%{  background: linear-gradient(60deg,#e550de,#592856,#773574,#ad40a7);}
+  75%{  background: linear-gradient(180deg,#ad40a7,#e550de,#592856,#773574 );}
+  100%{  background: linear-gradient(-60deg,#773574,#ad40a7,#e550de,#592856);}
+
+}
+.label{
+  position:absolute;
+  right:0;
+  margin:90px 80px auto;
+  font-family:Italianno;
+  font-size: 3rem;
+  width:100px;
+  height:100px;
+  border: 1px solid #888888;
+  box-shadow:2px 2px 4px #888888;
+  cursor:pointer;
+  border-radius: 50%;
+  background: linear-gradient(-90deg,#592856,#773574,#ad40a7,#e550de );
+  animation-name: effect;
+  animation-duration: 0.65s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+}
+.label:hover{
+  animation-play-state: paused;
+  font-size: 3.2rem;
+  box-shadow:5px 3px 10px #888888;
+
+}
+.label span{
+  padding-top: 20px;
+  float: left;
+  margin-left: 4px;
+  font-weight: bold;
+  color: darkgray;
 }

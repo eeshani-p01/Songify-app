@@ -318,8 +318,6 @@ var songs = [
                        songNumber=songs.length;
                    }
                 });
-
-
 /*
       var songList =['I Hate U , I Love U','Starving','Faded','Uncover'];
       var fileName = ['song.mp3','song2.mp3','song3.mp3','song4.mp3'];
@@ -335,3 +333,171 @@ var songs = [
       }
     }
 */
+
+  var wahwah;
+  var convolver;
+  var cabinet;
+  var overdrive;
+  var compressor;
+  function tunaDemo(){
+
+    var tuna = new Tuna(context);
+
+    wahwah = new tuna.WahWah({
+    automode: true,                //true/false
+    baseFrequency: 0.5,            //0 to 1
+    excursionOctaves: 2,           //1 to 6
+    sweep: 0.6,                    //0 to 1
+    resonance: 100,                 //1 to 100
+    sensitivity: 0.5,              //-1 to 1
+    bypass: 1
+    });
+    delay = new tuna.Delay({
+    feedback: 0.8,    //0 to 1+
+    delayTime: 1,    //1 to 10000 milliseconds
+    wetLevel: 0.25,    //0 to 1+
+    dryLevel: 1,       //0 to 1+
+    cutoff: 20000,      //cutoff frequency of the built in lowpass-filter. 20 to 22050
+    bypass: 1
+    });
+    chorus = new tuna.Chorus({
+    rate: 0.01,         //0.01 to 8+
+    feedback: 0.3,     //0 to 1+
+    delay: 0.000000,     //0 to 1
+    bypass: 1          //the value 1 starts the effect as bypassed, 0 or 1
+    });
+    phaser = new tuna.Phaser({
+    rate: 25,                     //0.01 to 8 is a decent range, but higher values are possible
+    depth: 0,                    //0 to 1
+    feedback: 0.2,                 //0 to 1+
+    stereoPhase: 0,               //0 to 180
+    baseModulationFrequency: 500,  //500 to 1500
+    bypass: 1
+    });
+    convolver = new tuna.Convolver({
+    highCut: 100,                         //20 to 22050
+    lowCut: 22050,                             //20 to 22050
+    dryLevel: 0.5,                            //0 to 1+
+    wetLevel: 1,                            //0 to 1+
+    level: 0,                               //0 to 1+, adjusts total output of both wet and dry
+    impulse: "impulse_rev.wav",    //the path to your impulse response
+    bypass: 1
+    });
+    cabinet = new tuna.Cabinet({
+    makeupGain: 10,                                 //0 to 20
+    impulsePath: "impulse1.mp3",    //path to your speaker impulse
+    bypass: 1
+    });
+    tremolo = new tuna.Tremolo({
+    intensity: 0.3,    //0 to 1
+    rate: 4,         //0.001 to 8
+    stereoPhase:150,    //0 to 180
+    bypass: 1
+    });
+    gain = new tuna.Gain({
+    gain: 1 // 0 and up
+    });
+    overdrive = new tuna.Overdrive({
+    outputGain: 0.5,         //0 to 1+
+    drive: 0.7,              //0 to 1
+    curveAmount: 1,          //0 to 1
+    algorithmIndex: 2,       //0 to 5, selects one of our drive algorithms
+    bypass: 1
+    });
+    pingPongDelay = new tuna.PingPongDelay({
+    wetLevel: 0.5, //0 to 1
+    feedback: 0.3, //0 to 1
+    delayTimeLeft: 150, //1 to 10000 (milliseconds)
+    delayTimeRight: 200 //1 to 10000 (milliseconds)
+    });
+    filter = new tuna.Filter({
+    frequency: 22050, //20 to 22050
+    Q: 1, //0.001 to 100
+    gain: 0, //-40 to 40 (in decibels)
+    filterType: "notch", //lowpass, highpass, bandpass, lowshelf, highshelf, peaking, notch, allpass
+    bypass: 1
+    });
+    compressor = new tuna.Compressor({
+    threshold: -42,    //-100 to 0
+    makeupGain: 1,     //0 and up (in decibels)
+    attack: 30,         //0 to 1000
+    release: 0,        //0 to 3000
+    ratio: 4,          //1 to 20
+    knee: 5,           //0 to 40
+    automakeup: true,  //true/false
+    bypass: 1
+    });
+  }
+
+      var context= new AudioContext();
+      tunaDemo();
+      var song =document.querySelector('audio');
+      var source = context.createMediaElementSource(song);
+      //var source=context.createBufferSource();
+      source.connect(wahwah.input);
+      source.connect(convolver.input);
+      source.connect(cabinet.input);
+      source.connect(overdrive.input);
+      source.connect(compressor.input);
+      wahwah.connect(context.destination);
+      convolver.connect(context.destination);
+      cabinet.connect(context.destination);
+      overdrive.connect(context.destination);
+      compressor.connect(context.destination);
+
+      var button = document.querySelector('#wahwah');
+      var button4 = document.querySelector('#convolver');
+      var button5 = document.querySelector('#cabinet');
+      var button8 = document.querySelector('#overdrive');
+      var button11 = document.querySelector('#compressor');
+
+      button.addEventListener("click",function(e){
+          if(wahwah.bypass){
+            wahwah.bypass=false;
+            console.log("false");
+          }
+          else{
+            wahwah.bypass=true;
+            console.log("true");
+          }
+      });
+        button4.addEventListener("click",function(e){
+             if(convolver.bypass){
+               convolver.bypass=false;
+               console.log("false");
+             }
+             else{
+               convolver.bypass=true;
+               console.log("true");
+             }
+         });
+         button5.addEventListener("click",function(e){
+              if(cabinet.bypass){
+                cabinet.bypass=false;
+                console.log("false");
+              }
+              else{
+                cabinet.bypass=true;
+                console.log("true");
+              }
+          });
+            button8.addEventListener("click",function(e){
+                 if(overdrive.bypass){
+                   overdrive.bypass=false;
+                   console.log("false");
+                 }
+                 else{
+                   overdrive.bypass=true;
+                   console.log("true");
+                 }
+             });
+               button11.addEventListener("click",function(e){
+                    if(compressor.bypass){
+                      compressor.bypass=false;
+                      console.log("false");
+                    }
+                    else{
+                      compressor.bypass=true;
+                      console.log("true");
+                    }
+                });
