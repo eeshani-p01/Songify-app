@@ -142,6 +142,10 @@ var songs = [
       $('.current-song-album').text(songObj.album);
     }
 
+    function effects_clicked(id1){
+      $(id1).toggleClass('clicked');
+      // console.log('clicked');
+    }
 /*    function timejump() {
       var aud=document.querySelector('audio');
       aud.currentTime=aud.duration-5;
@@ -318,6 +322,13 @@ var songs = [
                        songNumber=songs.length;
                    }
                 });
+
+                $('.label').on('click',function(){
+                    $('.effects').removeClass('hidden');
+                    $('.content').addClass('hidden');
+                    $('.label').addClass('hidden');
+                });
+
 /*
       var songList =['I Hate U , I Love U','Starving','Faded','Uncover'];
       var fileName = ['song.mp3','song2.mp3','song3.mp3','song4.mp3'];
@@ -352,28 +363,6 @@ var songs = [
     sensitivity: 0.5,              //-1 to 1
     bypass: 1
     });
-    delay = new tuna.Delay({
-    feedback: 0.8,    //0 to 1+
-    delayTime: 1,    //1 to 10000 milliseconds
-    wetLevel: 0.25,    //0 to 1+
-    dryLevel: 1,       //0 to 1+
-    cutoff: 20000,      //cutoff frequency of the built in lowpass-filter. 20 to 22050
-    bypass: 1
-    });
-    chorus = new tuna.Chorus({
-    rate: 0.01,         //0.01 to 8+
-    feedback: 0.3,     //0 to 1+
-    delay: 0.000000,     //0 to 1
-    bypass: 1          //the value 1 starts the effect as bypassed, 0 or 1
-    });
-    phaser = new tuna.Phaser({
-    rate: 25,                     //0.01 to 8 is a decent range, but higher values are possible
-    depth: 0,                    //0 to 1
-    feedback: 0.2,                 //0 to 1+
-    stereoPhase: 0,               //0 to 180
-    baseModulationFrequency: 500,  //500 to 1500
-    bypass: 1
-    });
     convolver = new tuna.Convolver({
     highCut: 100,                         //20 to 22050
     lowCut: 22050,                             //20 to 22050
@@ -387,15 +376,6 @@ var songs = [
     makeupGain: 10,                                 //0 to 20
     impulsePath: "impulse1.mp3",    //path to your speaker impulse
     bypass: 1
-    });
-    tremolo = new tuna.Tremolo({
-    intensity: 0.3,    //0 to 1
-    rate: 4,         //0.001 to 8
-    stereoPhase:150,    //0 to 180
-    bypass: 1
-    });
-    gain = new tuna.Gain({
-    gain: 1 // 0 and up
     });
     overdrive = new tuna.Overdrive({
     outputGain: 0.5,         //0 to 1+
@@ -452,52 +432,57 @@ var songs = [
       var button11 = document.querySelector('#compressor');
 
       button.addEventListener("click",function(e){
+          effects_clicked(button);
           if(wahwah.bypass){
             wahwah.bypass=false;
-            console.log("false");
+            console.log("wahwah on");
           }
           else{
             wahwah.bypass=true;
-            console.log("true");
+            console.log("wahwah off");
           }
       });
         button4.addEventListener("click",function(e){
+          effects_clicked(button4);
              if(convolver.bypass){
                convolver.bypass=false;
-               console.log("false");
+               console.log("convolver on");
              }
              else{
                convolver.bypass=true;
-               console.log("true");
+               console.log("convolver off");
              }
          });
          button5.addEventListener("click",function(e){
+           effects_clicked(button5);
               if(cabinet.bypass){
                 cabinet.bypass=false;
-                console.log("false");
+                console.log("echo on");
               }
               else{
                 cabinet.bypass=true;
-                console.log("true");
+                console.log("echo off");
               }
           });
             button8.addEventListener("click",function(e){
+              effects_clicked(button8);
                  if(overdrive.bypass){
                    overdrive.bypass=false;
-                   console.log("false");
+                   console.log("overdrive on");
                  }
                  else{
                    overdrive.bypass=true;
-                   console.log("true");
+                   console.log("overdrive off");
                  }
              });
                button11.addEventListener("click",function(e){
+                 effects_clicked(button11);
                     if(compressor.bypass){
                       compressor.bypass=false;
-                      console.log("false");
+                      console.log("vibration on");
                     }
                     else{
                       compressor.bypass=true;
-                      console.log("true");
+                      console.log("vibration off");
                     }
                 });

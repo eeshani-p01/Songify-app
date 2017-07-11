@@ -30,8 +30,7 @@ h1 {
       .controls_2 .fa{
         margin: 0px 0px 12px -15rem;
       }
-      #songs_wrapper{
-        margin-top: -120px;
+      div#songs_wrapper{
       }
       div.label{
         margin-top: 120px;
@@ -108,7 +107,11 @@ h1 {
     letter-spacing: .6px;
     font-family:'Arima Madurai',Helvetica,arial;
 }
-
+.main{
+  background: url('images/wall4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .main header {
     height: 80px;
     background-color: #282828;
@@ -116,25 +119,25 @@ h1 {
     color: #FFF;
 }
 
-.main .content {
-    flex:1;
-    background-color: #1f1f1f;
-}
 .logo h1{
   font-size: 3rem;
-  font-weight: bold;
   letter-spacing: 3px;
   font-family: 'Lovers Quarrel' ,Italianno,Helvetica,arial,serif;
-  color: #a81c91;
+  color: #00cccc;
 }
 .logo span{
     position:absolute;
     margin:-12px 0px 0px 6.5rem;
-    color:#a81c91;
+    color:#00cccc;
     opacity: 0.6;
     font-size: 1.5rem;
     font-weight: bold;
     font-family:Italianno;
+}
+
+.user-name{
+  color:#00cccc;
+  opacity: 0.8;
 }
 .main footer {
     width: 100%;
@@ -187,11 +190,12 @@ h1 {
 }
 
 .main .content {
+    flex:1;
+    background: rgba(0, 0, 0, 0.6);
     width: 800px;
     margin: 2rem auto;
-    margin-top: 160px;
+    margin-top: 130px;
 }
-
 .list-headers {
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255,255,255,0.5);
@@ -228,9 +232,11 @@ h1 {
     text-align: right;
 }
 
+
 /* Current song display css*/
 .main footer {
-    position: relative;
+  bottom:0;
+    position: fixed;
 }
 .main footer .current-song-wrapper {
     position: absolute;
@@ -341,13 +347,14 @@ color: transparent;
 #songs_filter input {
 width: 320px;
 height:25px;
-margin-bottom: 1rem;
-font-size: 16px;
+margin-bottom: 0.8rem;
+font-size: 18px;
 border:0;
 border-radius:15px;
 background-color:#e0e0e0;
 outline:none;
-padding;
+padding-left:20px;
+cursor:auto;
 }
 
 #songs_filter input:focus {
@@ -358,14 +365,14 @@ padding;
   cursor:pointer;
 }
 #songs .song:hover{
-  background-color:#282828;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 /* css for effects*/
 @keyframes effect{
-  0%{  background: linear-gradient(-90deg,#592856,#773574,#ad40a7,#e550de );}
+  0%{  background: linear-gradient(-90deg,black,white );}
   25%{  background: linear-gradient(60deg,#e550de,#592856,#773574,#ad40a7);}
-  75%{  background: linear-gradient(180deg,#ad40a7,#e550de,#592856,#773574 );}
+  75%{  background: linear-gradient(180deg,black,gray );}
   100%{  background: linear-gradient(-60deg,#773574,#ad40a7,#e550de,#592856);}
 
 }
@@ -399,4 +406,25 @@ padding;
   margin-left: 4px;
   font-weight: bold;
   color: darkgray;
+}
+
+.icon{
+  height: 61px;
+  width: 180px;
+  font-size: 1.5rem;
+  font-family: inherit;
+  margin:50px 50px 50px 50px;
+  border-radius: 30px;
+  color:gray;
+  background-color:black;
+  box-shadow: 5px 5px 5px gray;
+  cursor: pointer;
+  letter-spacing: 1px;
+  outline: none;
+}
+.icon:hover{
+  box-shadow: 5px 7px 20px #00cccc;
+}
+.clicked{
+  box-shadow: 5px 7px 10px #00cccc;
 }
