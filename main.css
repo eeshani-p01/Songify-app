@@ -120,7 +120,22 @@ h1 {
     flex:1;
     background-color: #1f1f1f;
 }
-
+.logo h1{
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-family: 'Lovers Quarrel' ,Italianno,Helvetica,arial,serif;
+  color: #a81c91;
+}
+.logo span{
+    position:absolute;
+    margin:-12px 0px 0px 6.5rem;
+    color:#a81c91;
+    opacity: 0.6;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family:Italianno;
+}
 .main footer {
     width: 100%;
     height: 80px;
@@ -326,13 +341,13 @@ color: transparent;
 #songs_filter input {
 width: 320px;
 height:25px;
-/*margin-bottom: 1rem;
+margin-bottom: 1rem;
 font-size: 16px;
 border:0;
 border-radius:15px;
 background-color:#e0e0e0;
 outline:none;
-padding;*/
+padding;
 }
 
 #songs_filter input:focus {
