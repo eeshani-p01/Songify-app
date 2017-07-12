@@ -329,6 +329,11 @@ var songs = [
                     $('.label').addClass('hidden');
                 });
 
+                $('#back').on('click',function(){
+                  $('.effects').addClass('hidden');
+                  $('.content').removeClass('hidden');
+                  $('.label').removeClass('hidden');
+                });
 /*
       var songList =['I Hate U , I Love U','Starving','Faded','Uncover'];
       var fileName = ['song.mp3','song2.mp3','song3.mp3','song4.mp3'];

@@ -36,13 +36,13 @@ h1 {
         margin-top: 120px;
       }
       .effects .icon{
-        margin:140px 20px 50px 200px;
+        margin:140px 20px 50px 160px;
         display:inline;
       }
       .effects div .icon{
         margin-top: 80px;
-        margin-left: 400px;
-        margin-right: -170px;}
+        margin-left: 350px;
+        margin-right: -150px;}
 }
 .wrapper {
     height: 100%;
@@ -105,6 +105,19 @@ h1 {
   background-color: #ad6492;
   cursor: pointer;
 }
+@-webkit-keyframes backgroundScroll {
+    0% {background-position: 0 0;}
+    10% {background-position: -360px 50px;}
+    25% {background-position: -180px -50px;}
+    50% {background-position:  50px -360px;}
+    75% {background-position:  70px -180px;}
+    100% {background-position: 200px 220px;}
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
 .main {
     width: 100%;
     height: 100%;
@@ -114,31 +127,35 @@ h1 {
     background-color: #1f1f1f;
     letter-spacing: .6px;
     font-family:'Arima Madurai',Helvetica,arial;
-}
-.main{
-  background: url('images/wall4.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-image: url('images/wall2.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    -webkit-animation: backgroundScroll 15s linear infinite;
+    -webkit-animation-fill-mode: reverse;
+    animation: backgroundScroll 15s linear infinite;
+    animation-fill-mode: alternate;
 }
 .main header {
     height: 80px;
     background-color: #282828;
+    background: transparent;
     padding: 1rem;
     color: #FFF;
 }
 
 .logo h1{
-  font-size: 3rem;
+  font-size: 5rem;
   letter-spacing: 3px;
   font-family: 'Lovers Quarrel' ,Italianno,Helvetica,arial,serif;
-  color: #00cccc;
+  color: #421331;
 }
 .logo span{
     position:absolute;
-    margin:-12px 0px 0px 6.5rem;
-    color:#00cccc;
+    margin:-30px 0px 0px 9.5rem;
+    color:#421331;
     opacity: 0.6;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     font-family:Italianno;
 }
@@ -199,10 +216,12 @@ h1 {
 
 .main .content {
     flex:1;
-    background: rgba(0, 0, 0, 0.6);
     width: 800px;
     margin: 2rem auto;
     margin-top: 130px;
+}
+table{
+  background: rgba(0, 0, 0, 0.6);
 }
 .list-headers {
     padding-bottom: 0.5rem;
@@ -379,9 +398,9 @@ cursor:auto;
 /* css for effects*/
 @keyframes effect{
   0%{  background: linear-gradient(-90deg,black,white );}
-  25%{  background: linear-gradient(60deg,#e550de,#592856,#773574,#ad40a7);}
+  25%{  background: linear-gradient(-90deg,#00cccc,#1b3f38);}
   75%{  background: linear-gradient(180deg,black,gray );}
-  100%{  background: linear-gradient(-60deg,#773574,#ad40a7,#e550de,#592856);}
+  100%{  background: linear-gradient(60deg,#e550de,#592856);}
 
 }
 .label{
@@ -416,6 +435,26 @@ cursor:auto;
   color: darkgray;
 }
 
+#back{
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  float: right;
+  margin:10px 100px auto;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color:black;
+  border: 2px solid gray;
+  opacity: 0.95;
+}
+#back i{
+    margin:12px;
+}
+#back:hover{
+  background-color:rgba(25, 25,28,0.8);
+  color:#00cccc;
+}
 .icon{
   position: relative;
   display: block;
