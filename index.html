@@ -13,7 +13,7 @@
 
 <body>
     <div class="wrapper">
-        <section class="welcome-screen">
+        <section class="welcome-screen hidden">
             <h1> Songify... </h1>
             <span>feel the music</span>
             <h3> Enter the name to access your account </h3>
@@ -22,7 +22,7 @@
                 <button>  <i class="fa fa-music" aria-hidden="true"></i></button>
             </div>
         </section>
-        <div class="main hidden">
+        <div class="main">
             <header>
                   <div class="logo">
                     <h1> Songify... </h1>
@@ -45,8 +45,16 @@
             </div>
             <section class="content">
                 <audio src="songs/song5.mp3"></audio>
-
+                <div id="#music">
+                  <img src="images/images.png" id="musicimg">
+                  <button class="tableicon" id="playall" title="Play All">
+                    <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+                    Play All
+                  </button>
+                  <button class="tableicon" id="addfile" title="Add your file"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </div>
                 <table id="songs">
+
                     <thead class="list-headers">
                       <tr>
                           <td> Title </td>
@@ -101,11 +109,11 @@
                 </div>
                 <div class="controls">
                     <div class="player-buttons">
-                       <i class="fa fa-random disabled clickable" aria-hidden="true"></i>
-                       <i class="fa fa-step-backward clickable disabled" aria-hidden="true"></i>
-                       <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
-                       <i class="fa fa-step-forward clickable disabled" aria-hidden="true"></i>
-                       <i class="fa fa-repeat disabled clickable" aria-hidden="true"></i>
+                       <i class="fa fa-random disabled clickable" aria-hidden="true" title="Shuffle"></i>
+                       <i class="fa fa-step-backward clickable disabled" aria-hidden="true" title="Previous Song"></i>
+                       <i class="fa fa-play clickable play-icon" aria-hidden="true" ></i>
+                       <i class="fa fa-step-forward clickable disabled" aria-hidden="true" title="Next Song"></i>
+                       <i class="fa fa-repeat disabled clickable" aria-hidden="true" title="Repeat All"></i>
                     </div>
                       <div class="progress-wrapper">
                           <span class="time-elapsed"> </span>

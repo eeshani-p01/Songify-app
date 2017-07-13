@@ -243,6 +243,11 @@ var songs = [
                  willLoop = 1 - willLoop;
 
              });
+             $('#playall').on('click',function() {
+                toggleSong();
+                 willLoop = 1 - willLoop;
+
+             });
              $('.fa-random').on('click',function() {
                  $('.fa-random').toggleClass('disabled')
                  willShuffle = 1 - willShuffle;
