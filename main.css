@@ -222,13 +222,15 @@ h1 {
 
 .main .content {
     flex:1;
-    width: 800px;
+    width: 850px;
     margin: 2rem auto;
-    margin-top: 130px;
+    margin-top: 45px;
+    background: rgba(1, 1, 1, 0.6);
+    padding:25px;
 }
 table{
-  background: rgba(0, 0, 0, 0.6);
   position:relative;
+  background: rgba(1, 1, 1, 0.6);
   z-index: 0;
 }
 .list-headers {
@@ -382,7 +384,7 @@ color: transparent;
 #songs_filter input {
 width: 320px;
 height:25px;
-margin-bottom: 0.8rem;
+margin-bottom: 1.8rem;
 margin-right:10px;
 font-size: 18px;
 border:0;
@@ -407,12 +409,19 @@ cursor:auto;
 #music{
 }
 #musicimg{
-  margin-bottom:-35px;
+  margin-bottom:-55px;
   border: 3px solid purple;
-  width:90px;
-  height:100px;
+  width:95px;
+  height:105px;
   border-radius: 12%;
+  position:relative;
+  opacity: 0.8;
+}
 
+ span#playlist{
+  position:absolute;
+  margin:2px 22px;
+  font-size: 1.7rem;
 }
 button.tableicon{
     position: absolute;
@@ -426,20 +435,38 @@ button.tableicon{
     height: 30px;
     margin:70px 20px auto;
 }
-button.tableicon:hover{
+button.tableicon:hover,button.tableicon:focus{
   background-color:purple;
   color:white;
   outline: none;
 }
 #playall{
-  width:95px;
+  width:100px;
   border-radius: 2rem;
 }
 #addfile{
   border-radius: 1.5rem;
-  margin-left:125px;
+  margin-left:130px;
   width:30px;
   padding:4px;
+}
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+.fileUpload input#upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+p.demo{
+  margin-left: 260px;
+  margin-bottom: -25px;
 }
 
 /* css for effects*/

@@ -208,6 +208,19 @@ var songs = [
                              toggleSong();
                          }
              });
+
+             $('#upload').click(function(event){
+               var x = document.getElementById("upload");
+                 var txt = "";
+                   var file = x.files[0];
+                       txt +=" File:"+file.name;
+                 var input=document.querySelector('audio');
+                 input.src=x.value;
+                 var ele=document.getElementById ("demo");
+                 $('#demo').addClass('demo')
+                 ele.innerHTML = txt;
+             });
+
              $('.player-progress').click(function(event){
                var $this=$(this);
                var widthclicked= event.pageX-$this.offset().left;
@@ -246,13 +259,11 @@ var songs = [
              $('#playall').on('click',function() {
                 toggleSong();
                  willLoop = 1 - willLoop;
-
              });
              $('.fa-random').on('click',function() {
                  $('.fa-random').toggleClass('disabled')
                  willShuffle = 1 - willShuffle;
              });
-
              $('audio').on('ended',function(){
                  var audio=document.querySelector('audio');
                  if(willShuffle==1)

@@ -45,16 +45,20 @@
             </div>
             <section class="content">
                 <audio src="songs/song5.mp3"></audio>
-                <div id="#music">
-                  <img src="images/images.png" id="musicimg">
-                  <button class="tableicon" id="playall" title="Play All">
-                    <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
-                    Play All
-                  </button>
-                  <button class="tableicon" id="addfile" title="Add your file"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                </div>
                 <table id="songs">
-
+                  <div id="#music">
+                    <img src="images/images.png" id="musicimg">
+                      <span id="playlist">Top Songs 2017-16</span>
+                    <button class="tableicon" id="playall" title="Play All">
+                      <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+                        <span>&nbspPlay All<span>
+                    </button>
+                    <button class="tableicon fileUpload" id="addfile" title="Add your file">
+                      <i class="fa fa-plus" aria-hidden="true"></i>
+                        <input type="file" id="upload" accept="audio/*" value="">
+                    </button>
+                      <p id="demo" class=""></p>
+                    </div>
                     <thead class="list-headers">
                       <tr>
                           <td> Title </td>
