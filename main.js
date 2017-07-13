@@ -1,6 +1,21 @@
 /*List of details of song , declaring an object to store detail of each song */
 var songs = [
-
+  {
+    'name':'Baarish',
+    'artist':'Ash King , Shashaa Tirupati',
+    'album':'Half Girlfriend',
+    'duration':'4:35',
+    'fileName':'song9.mp3',
+    'image':'image8.jpg',
+  },
+  {
+    'name':'Enna Sona',
+    'artist':'Arijit Singh , A. R. Rahman',
+    'album':'Ok Jaanu',
+    'duration':'3:33',
+    'fileName':'song7.mp3',
+    'image':'image7..jpg',
+  },
   {
     'name':'Faded',
     'artist':'Alan Walker',
@@ -16,6 +31,14 @@ var songs = [
       'duration':'4:40',
       'fileName':'song2.mp3',
       'image':'image2.jpg',
+    },
+    {
+      'name':'I Don\'t Wanna Live Forever',
+      'artist':'Zayn Malik, Taylor Swift',
+      'album':'Fifty Shades Darker',
+      'duration':'4:05',
+      'fileName':'song11.mp3',
+      'image':'image9.jpg',
     },
    {
      'name':'I Hate U , I Love U',
@@ -42,21 +65,20 @@ var songs = [
      'image':'image3.jpg',
    },
    {
-     'name':'Tera Woh Pyaar',
-     'artist':'Momina Mustehsan , Asim Azhar',
-     'album':'Coke Studio 9 (2016)',
-     'duration':'7:05',
-     'fileName':'song6.mp3',
-     'image':'image6.jpg',
-   }
-   ,
+      'name':'Phir Bhi Tumko Chaahunga',
+      'artist':'Arijit Singh , Shashaa Tirupati',
+      'album':'Half Girlfriend',
+      'duration':'5:51',
+      'fileName':'song8.mp3',
+      'image':'image11.jpg',
+   },
    {
-     'name':'Tera Woh Pyaar',
-     'artist':'Momina Mustehsan , Asim Azhar',
-     'album':'Coke Studio 9 (2016)',
-     'duration':'7:05',
-     'fileName':'song6.mp3',
-     'image':'image6.jpg',
+     'name':'Say You Won\'t Let Go',
+     'artist':'James Arthur',
+     'album':'Back from the Edge',
+     'duration':'4:22',
+     'fileName':'song10.mp3',
+     'image':'image12.jpg',
    },
    {
      'name':'Tera Woh Pyaar',
@@ -67,12 +89,12 @@ var songs = [
      'image':'image6.jpg',
    },
    {
-     'name':'Tera Woh Pyaar',
-     'artist':'Momina Mustehsan , Asim Azhar',
-     'album':'Coke Studio 9 (2016)',
-     'duration':'7:05',
-     'fileName':'song6.mp3',
-     'image':'image6.jpg',
+     'name':'Thodi Der',
+     'artist':'Shreya Ghoshal , Farhan Saeed',
+     'album':'Half Girlfriend',
+     'duration':'4:56',
+     'fileName':'song12.mp3',
+     'image':'image10.jpg',
    }
  ]
 
