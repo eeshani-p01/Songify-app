@@ -19,7 +19,7 @@ var songs = [
     },
    {
      'name':'I Hate U , I Love U',
-     'artist':['Gnash ',' Olivia OBrien'],
+     'artist':['Gnash ',' Olivia O \'Brien'],
      'album':'A força do querer, vol. 1',
      'duration':'3:46',
      'fileName':'song.mp3',
@@ -34,12 +34,45 @@ var songs = [
      'image':'image4.jpg',
    },
    {
-     'name':'Love the way you lie(feat.Rihaana)',
+     'name':'Love the way you lie (feat.Rihaana)',
      'artist':'Eminem , Rihaana',
      'album':'Recovery',
      'duration':'4:23',
      'fileName':'song3.mp3',
      'image':'image3.jpg',
+   },
+   {
+     'name':'Tera Woh Pyaar',
+     'artist':'Momina Mustehsan , Asim Azhar',
+     'album':'Coke Studio 9 (2016)',
+     'duration':'7:05',
+     'fileName':'song6.mp3',
+     'image':'image6.jpg',
+   }
+   ,
+   {
+     'name':'Tera Woh Pyaar',
+     'artist':'Momina Mustehsan , Asim Azhar',
+     'album':'Coke Studio 9 (2016)',
+     'duration':'7:05',
+     'fileName':'song6.mp3',
+     'image':'image6.jpg',
+   },
+   {
+     'name':'Tera Woh Pyaar',
+     'artist':'Momina Mustehsan , Asim Azhar',
+     'album':'Coke Studio 9 (2016)',
+     'duration':'7:05',
+     'fileName':'song6.mp3',
+     'image':'image6.jpg',
+   },
+   {
+     'name':'Tera Woh Pyaar',
+     'artist':'Momina Mustehsan , Asim Azhar',
+     'album':'Coke Studio 9 (2016)',
+     'duration':'7:05',
+     'fileName':'song6.mp3',
+     'image':'image6.jpg',
    }
  ]
 
@@ -174,8 +207,17 @@ var songs = [
 
            $('#songs').DataTable({        //adding datatables
              paging:false,
-          /*   scrollY:250,
-             scroller:true*/
+             language: {
+                           searchPlaceholder: "Search"
+                       },
+             "aoColumns" : [
+                           { sWidth: '250px' },
+                           { sWidth: '230px' },
+                           { sWidth: '175px' },
+                           { sWidth: '1px' }],
+             scrollY:250,
+             scroller:false,
+             deferRender:true
            });
      }
 
