@@ -148,6 +148,38 @@ var songs = [
           //console.log(bar);
     }
 
+    function welcome_screen(){
+          var name = $('#name-input').val();
+          if (name.length > 3) {
+              $('.input-wrapper').addClass('success');
+              $('#helpBlock').text("You are successfully logged in.");
+
+              var message = "Welcome, " + name;
+              $('.main .user-name').text(message);
+              $(".welcome-screen").slideUp(800);
+              setTimeout(function(){
+                $('.welcome-screen').addClass('hidden');
+
+              }, 620);
+              setTimeout(function(){
+                $(".main").slideUp(300);
+                $('.main').removeClass('hidden');
+                 //initiallizing datatable after removing hidden class so that autoresize not occur
+                     $('#songs').DataTable({        //adding datatables
+                       paging:false,
+                       language: {
+                                     searchPlaceholder: "Search"
+                                 },
+                       scrollY:250,            //adding scrollbar
+                       deferRender:true        //to set srollbar when required
+                     });
+              },50);
+          } else {
+              $('.input-wrapper').addClass('error');
+              $('#helpBlock').text("Please enter more than 3 characters!!!");
+          }
+    }
+
     function changeVolume(val){
            var aud=document.querySelector('audio');
            aud.volume=val;
@@ -232,31 +264,14 @@ var songs = [
 
 
              $('.welcome-screen button').on('click', function() {
-                 var name = $('#name-input').val();
-                 if (name.length > 3) {
-                     var message = "Welcome, " + name;
-                     $('.main .user-name').text(message);
-                     $(".welcome-screen").slideUp(400);
-                     setTimeout(function(){
-                       $('.welcome-screen').addClass('hidden');
-
-                     }, 280);
-                     setTimeout(function(){
-                       $(".main").slideUp(300);
-                       $('.main').removeClass('hidden');
-                        //initiallizing datatable after removing hidden class so that autoresize not occur
-                            $('#songs').DataTable({        //adding datatables
-                              paging:false,
-                              language: {
-                                            searchPlaceholder: "Search"
-                                        },
-                              scrollY:250,            //adding scrollbar
-                              deferRender:true        //to set srollbar when required
-                            });
-                     },50);
-                 } else {
-                     $('.input-wrapper').addClass('error');
-                 }
+                  welcome_screen();
+             });
+             $('.welcome-screen').on('keypress', function(event) {
+                 var target=event.target;
+                         if (event.keyCode == 13 && target.tagName=='INPUT') {
+                               welcome_screen();
+                              // console.log('welcome');
+                         }
              });
 
              $('.play-icon').on('click', function() {
