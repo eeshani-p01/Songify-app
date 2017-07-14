@@ -228,10 +228,11 @@ h1 {
     background: rgba(1, 1, 1, 0.6);
     padding:25px;
 }
-table{
+table.dataTable{
   position:relative;
   background: rgba(1, 1, 1, 0.6);
   z-index: 0;
+  width:100%;
 }
 .list-headers {
     padding-bottom: 0.5rem;

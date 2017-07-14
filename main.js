@@ -128,7 +128,7 @@ var songs = [
     }
 
 
-    function updateCurrentTime() {              //function to change
+    function updateCurrentTime() {              //function to change the current time and duration of different song
       var song = document.querySelector('audio');
       //console.log(song.currentTime);
       //console.log(song.duration);
@@ -142,7 +142,7 @@ var songs = [
       Progressbar(bar);
     }
 
-    function Progressbar(bar){
+    function Progressbar(bar){                  // function to make the progressbar filled when the song is playing
           var ele = document.querySelector('.progress-filled');
           ele.style.width= bar +"%";
           //console.log(bar);
@@ -227,20 +227,7 @@ var songs = [
              addClickOnSongname(obj,i+1);
            }
 
-           $('#songs').DataTable({        //adding datatables
-             paging:false,
-             language: {
-                           searchPlaceholder: "Search"
-                       },
-             "aoColumns" : [
-                           { sWidth: '250px' },
-                           { sWidth: '230px' },
-                           { sWidth: '175px' },
-                           { sWidth: '1px' }],
-             scrollY:250,
-             scroller:false,
-             deferRender:true
-           });
+
      }
 
 
@@ -257,6 +244,15 @@ var songs = [
                      setTimeout(function(){
                        $(".main").slideUp(300);
                        $('.main').removeClass('hidden');
+                        //initiallizing datatable after removing hidden class so that autoresize not occur
+                            $('#songs').DataTable({        //adding datatables
+                              paging:false,
+                              language: {
+                                            searchPlaceholder: "Search"
+                                        },
+                              scrollY:250,            //adding scrollbar
+                              deferRender:true        //to set srollbar when required
+                            });
                      },50);
                  } else {
                      $('.input-wrapper').addClass('error');
