@@ -256,10 +256,6 @@ window.onload = function () {
         song.find('.song-length').text(obj.duration);
         addClickOnSongname(obj, i + 1);
     }
-
-    context = new AudioContext();
-    tunaDemo();
-    createEffectContext();
 }
 
 
@@ -413,6 +409,10 @@ $('.label').on('click', function () {
     $('.effects').removeClass('hidden');
     $('.content').addClass('hidden');
     $('.label').addClass('hidden');
+    
+    context = new AudioContext();
+    tunaDemo();
+    createEffectContext();
 });
 
 $('#back').on('click', function () {
