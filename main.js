@@ -259,7 +259,7 @@ var songs = [
              addClickOnSongname(obj,i+1);
            }
 
-
+		  var context= new AudioContext();
      }
 
 
@@ -505,7 +505,7 @@ var songs = [
     });
   }
 
-      var context= new AudioContext();
+
       tunaDemo();
       var song =document.querySelector('audio');
       var source = context.createMediaElementSource(song);
