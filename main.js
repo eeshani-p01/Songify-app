@@ -259,6 +259,7 @@ window.onload = function () {
 
     context = new AudioContext();
     tunaDemo();
+    createEffectContext();
 }
 
 
@@ -499,19 +500,21 @@ function tunaDemo() {
     });
 }
 
-var song = document.querySelector('audio');
-var source = context.createMediaElementSource(song);
-//var source=context.createBufferSource();
-source.connect(wahwah.input);
-source.connect(convolver.input);
-source.connect(cabinet.input);
-source.connect(overdrive.input);
-source.connect(compressor.input);
-wahwah.connect(context.destination);
-convolver.connect(context.destination);
-cabinet.connect(context.destination);
-overdrive.connect(context.destination);
-compressor.connect(context.destination);
+function createEffectContext(){
+    var song = document.querySelector('audio');
+    var source = context.createMediaElementSource(song);
+    //var source=context.createBufferSource();
+    source.connect(wahwah.input);
+    source.connect(convolver.input);
+    source.connect(cabinet.input);
+    source.connect(overdrive.input);
+    source.connect(compressor.input);
+    wahwah.connect(context.destination);
+    convolver.connect(context.destination);
+    cabinet.connect(context.destination);
+    overdrive.connect(context.destination);
+    compressor.connect(context.destination);
+}
 
 var button = document.querySelector('#wahwah');
 var button4 = document.querySelector('#convolver');
